@@ -1,0 +1,26 @@
+package poked;
+
+import static poked.PokeD.playerOneHP;
+import static poked.PokeD.playerTwoHP;
+import java.lang.Math; 
+
+public class burnedStatus 
+{
+    static float burnedDMG = (float) 0.0;
+    
+    static void burnedP1()
+    {
+        System.out.println("player 2 is burned");
+        burnedDMG = playerTwoHP / 10;
+        playerTwoHP = playerTwoHP - Math.round(burnedDMG);
+        System.out.println("Player 2 HP is: ");
+    }
+    
+    static void burnedP2()
+    {
+        System.out.println("player 1 is burned");
+        burnedDMG = playerOneHP / 10;
+        playerOneHP = playerOneHP - Math.round(burnedDMG);
+        System.out.println("Player 1 HP is: ");
+    }
+}
