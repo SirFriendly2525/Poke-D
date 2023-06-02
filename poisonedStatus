@@ -1,0 +1,25 @@
+package poked;
+
+import static poked.PokeD.playerOneHP;
+import static poked.PokeD.playerTwoHP;
+
+public class poisonedStatus 
+{
+    static int poisonDMG = 5;
+    
+    static void poisonedP1()
+    {
+        System.out.println("Player 2 has been poisoned!!");
+        playerTwoHP = playerTwoHP - poisonDMG;
+        poisonDMG = poisonDMG * 2;
+        System.out.println("player 2 HP is: "+playerTwoHP);
+    }
+    
+    static void poisonedP2()
+    {
+        System.out.println("Player 1 has been poisoned!!");
+        playerOneHP = playerOneHP - poisonDMG;
+        poisonDMG = poisonDMG * 2;
+        System.out.println("player 1 HP is: "+playerOneHP);
+    }
+}
