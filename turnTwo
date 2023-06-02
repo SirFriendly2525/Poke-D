@@ -1,0 +1,384 @@
+package poked;
+
+import java.util.Scanner;
+import static poked.PokeD.playerOneHP;
+import static poked.PokeD.hitRoll;
+import static poked.PokeD.playerMoveType;
+import static poked.PokeD.playerType1;
+import static poked.PokeD.playerType2;
+
+import poked.fireTypeMoves;
+import static poked.fireTypeMoves.fireTotalDMG;
+import poked.waterTypeMoves;
+import static poked.waterTypeMoves.waterTotalDMG;
+import poked.grassTypeMoves;
+import static poked.grassTypeMoves.grassTotalDMG;
+import poked.electricTypeMoves;
+import static poked.electricTypeMoves.electricTotalDMG;
+import poked.iceTypeMoves;
+import static poked.iceTypeMoves.iceTotalDMG;
+import poked.fightingTypeMoves;
+import static poked.fightingTypeMoves.fightingTotalDMG;
+import poked.poisonTypeMoves;
+import static poked.poisonTypeMoves.poisonTotalDMG;
+import poked.groundTypeMoves;
+import static poked.groundTypeMoves.groundTotalDMG;
+import poked.flyingTypeMoves;
+import static poked.flyingTypeMoves.flyingTotalDMG;
+import poked.psychicTypeMoves;
+import static poked.psychicTypeMoves.psychicTotalDMG;
+import poked.bugTypeMoves;
+import static poked.bugTypeMoves.bugTotalDMG;
+import poked.rockTypeMoves;
+import static poked.rockTypeMoves.rockTotalDMG;
+import poked.ghostTypeMoves;
+import static poked.ghostTypeMoves.ghostTotalDMG;
+import poked.dragonTypeMoves;
+import static poked.dragonTypeMoves.dragonTotalDMG;
+import poked.darkTypeMoves;
+import static poked.darkTypeMoves.darkTotalDMG;
+import poked.steelTypeMoves;
+import static poked.steelTypeMoves.steelTotalDMG;
+import poked.fairyTypeMoves;
+import static poked.fairyTypeMoves.fairyTotalDMG;
+import poked.DmgCalculator;
+import static poked.DmgCalculator.normalTotalDMG;
+
+public class turnTwo 
+{
+    static int turnLoop2 = 2;
+    static int crit = 1;
+    static int finalDMG = 0;
+    
+    static void playerTwoTurn()
+    {
+        fireTypeMoves Fire = new fireTypeMoves(); // Ln107
+        waterTypeMoves Water = new waterTypeMoves(); // Ln122
+        grassTypeMoves Grass = new grassTypeMoves(); // Ln137
+        electricTypeMoves Electric = new electricTypeMoves(); // Ln152
+        iceTypeMoves Ice = new iceTypeMoves(); // Ln167
+        fightingTypeMoves Fighting = new fightingTypeMoves(); // Ln182
+        poisonTypeMoves Poison = new poisonTypeMoves(); // Ln197
+        groundTypeMoves Ground = new groundTypeMoves(); // Ln212
+        flyingTypeMoves Flying = new flyingTypeMoves(); // Ln227
+        psychicTypeMoves Psychic = new psychicTypeMoves(); //Ln242
+        bugTypeMoves Bug = new bugTypeMoves(); // Ln257
+        rockTypeMoves Rock = new rockTypeMoves(); // Ln272
+        ghostTypeMoves Ghost = new ghostTypeMoves(); // Ln287
+        dragonTypeMoves Dragon = new dragonTypeMoves(); // Ln302
+        darkTypeMoves Dark = new darkTypeMoves(); // Ln317
+        steelTypeMoves Steel = new steelTypeMoves(); //Ln332
+        fairyTypeMoves Fairy = new fairyTypeMoves(); // Ln347
+        DmgCalculator DmgCal = new DmgCalculator(); // Ln362
+        
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("hit Rolls - 2 is a miss. 0 is for immobile");
+        System.out.print("Enter player 2's hit roll: ");
+        hitRoll = keyboard.nextInt();
+        
+        switch (hitRoll)
+        {
+            case (2):
+                System.out.println("LOL, You missed");
+                break;
+            case (0):
+                System.out.println("Player 2 is Immobile");
+                break;
+            default:
+                System.out.println("Player 1 Hit");
+                // critical hit so damage is x4 after all dmg calc
+                if (hitRoll == 6)
+                {
+                    System.out.println("                 CRITICAL HIT!!!");
+                    crit = 4;
+                }
+                // enter player move type
+                System.out.print("Enter player 2's Move type: ");
+                playerMoveType = keyboard.next();
+                // enter player 1 type 1
+                System.out.print("Enter player 1's Type 1: ");
+                playerType1 = keyboard.next();
+                // enter player 1 type 2
+                System.out.print("Enter player 1's Type 2: ");
+                playerType2 = keyboard.next();
+                switch (playerMoveType)
+                {
+                    case ("fire"): // fire vs ?
+                        Fire.fireMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = fireTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - fireTotalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        }
+                        break;
+                    case ("water"): // water vs ?
+                        Water.waterMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = waterTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - waterTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("grass"): // grass vs ?
+                        Grass.grassMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = grassTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - grassTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("electric"): // electric vs ?
+                        Electric.electricMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = electricTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - electricTotalDMG;
+                            System.out.println("Player 2 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("ice"): // ice vs ?
+                        Ice.iceMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = iceTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - iceTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("fighting"): // fighting vs ?
+                        Fighting.fightingMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = fightingTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - fightingTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("poison"): // poison vs ?
+                        Poison.poisonMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = poisonTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - poisonTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("ground"): // ground vs ?
+                        Ground.groundMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = groundTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - groundTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("flying"): // flying vs ?
+                        Flying.flyingMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = flyingTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - flyingTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("psychic"): // psychic vs ?
+                        Psychic.psychicMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = psychicTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - psychicTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("bug"): // bug vs ?
+                        Bug.bugMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = bugTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - bugTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("rock"): // rock vs ?
+                        Rock.rockMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = rockTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - rockTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("ghost"): // ghost vs ?
+                        Ghost.ghostMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = ghostTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - ghostTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("dragon"): // dragon vs ?
+                        Dragon.dragonMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = dragonTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - dragonTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("dark"): // dark vs ?
+                        Dark.darkMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = darkTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - darkTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("steel"): // steel vs ?
+                        Steel.steelMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = steelTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - steelTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    case ("fairy"): // fairy vs ?
+                        Fairy.fairyMoves();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = fairyTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - fairyTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                    default: // normal vs ?
+                        DmgCal.doSomething();
+                        System.out.println("Player 1 HP was: "+playerOneHP);
+                        if (hitRoll == 6)
+                        {
+                            finalDMG = normalTotalDMG * crit;
+                            System.out.println("Total DMG Done: "+finalDMG);
+                            playerOneHP = playerOneHP - finalDMG;
+                            System.out.println("Player 1 HP is: "+playerOneHP);
+                        } else
+                        {
+                            playerOneHP = playerOneHP - normalTotalDMG;
+                            System.out.println("Player 1 HP is : "+playerOneHP);
+                        }
+                        break;
+                }
+            if (playerOneHP <= 0)
+            {
+                System.out.println("Player 2 has Won !!!!");
+                turnLoop2 = 1;
+            }
+        }
+    }
+}
