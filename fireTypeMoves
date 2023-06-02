@@ -1,0 +1,187 @@
+package poked;
+
+import java.util.Scanner;
+import static poked.PokeD.playerMoveType;
+import static poked.PokeD.playerType1;
+import static poked.PokeD.playerType2;
+
+public class fireTypeMoves 
+{
+    static int dmgRoll = 0;
+    static int dmgBaseMod = 0;
+    static int ATKStat = 0;
+    static int DEFStat = 0;
+    static int totalATK = 0;
+    static int fireATK = 0;
+    static int fireTotalDMG = 0;
+    static int playerOneHP = 0;
+    static int playerTwoHP = 0;
+    
+    /**
+     * can this block be transfered to another package for use in all move lists?
+     * or do i have to make it in each move list?
+     */
+    static void fireDMGRolling()
+    {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Enter the player's damage roll: ");
+        dmgRoll = keyboard.nextInt();
+        System.out.print("Enter DB Modifier: ");
+        dmgBaseMod = keyboard.nextInt();
+        System.out.print("Enter the Attackers ATK Stat: ");
+        ATKStat = keyboard.nextInt();
+        System.out.print("Enter the defenders DEF Stat: ");
+        DEFStat = keyboard.nextInt();
+        totalATK = (dmgRoll+dmgBaseMod+ATKStat);
+    }
+    
+    static void lessEffectiveFire()
+    {
+        fireATK = totalATK / 2;
+        fireTotalDMG = (fireATK - DEFStat);
+        System.out.println("dmg done: "+fireTotalDMG);
+    }
+    
+    static void regularEffectiveFire()
+    {
+        fireATK = totalATK;
+        fireTotalDMG = (fireATK - DEFStat);
+        System.out.println("dmg done: "+fireTotalDMG);
+    }
+    
+    static void superEffectiveFire()
+    {
+        fireATK = totalATK * 2;
+        fireTotalDMG = (fireATK - DEFStat);
+        System.out.println("dmg done: "+fireTotalDMG);
+    }
+    
+    static void superDuperEffectiveFire()
+    {
+        fireATK = totalATK * 3;
+        fireTotalDMG = (fireATK - DEFStat);
+        System.out.println("dmg done: "+fireTotalDMG);
+    }
+    
+    static void fireMoves()
+    {
+        if (playerMoveType.equals("fire"))
+        {
+            fireDMGRolling();
+            
+            // fire vs
+            switch(playerType1)
+            {
+                case("water"): // water
+                    switch(playerType2)
+                    {
+                        case("rock"): // water/rock
+                            System.out.println("Less Effective");
+                            lessEffectiveFire();
+                            break;
+                        case("dragon"): // water/dragon
+                            System.out.println("Less Effective");
+                            lessEffectiveFire();
+                            break;
+                        case("grass"): // water/grass
+                            regularEffectiveFire();
+                            break;
+                        case("ice"): // water/ice
+                            regularEffectiveFire();
+                            break;
+                        case("bug"): // water/bug
+                            regularEffectiveFire();
+                            break;
+                        case("steel"): // water/steel
+                            regularEffectiveFire();
+                            break;
+                        default: // water
+                            System.out.println("Less Effective");
+                            lessEffectiveFire();
+                            break;
+                    }
+                    break;
+                case("fire"): // fire
+                    switch("playerType2")
+                    {
+                        case("rock"): // fire/rock
+                            System.out.println("Less Effective");
+                            lessEffectiveFire();
+                            break;
+                        case("dragon"): // fire/dragon
+                            System.out.println("Less Effective");
+                            lessEffectiveFire();
+                            break;
+                        case("bug"): // fire/bug
+                            regularEffectiveFire();
+                            break;
+                        case("steel"): // fire/steel
+                            regularEffectiveFire();
+                            break;
+                        default: // fire
+                            System.out.println("Less Effective");
+                            lessEffectiveFire();
+                            break;
+                    }
+                    break;
+                case("rock"): // rock
+                    switch("playerType2")
+                    {
+                        case("fire"): // rock/fire
+                            System.out.println("Less Effective");
+                            lessEffectiveFire();
+                            break;
+                        case("water"): // rock/water
+                            System.out.println("Less Effective");
+                            lessEffectiveFire();
+                            break;
+                        case("dragon"): // rock/dragon
+                            System.out.println("Less Effective");
+                            lessEffectiveFire();
+                            break;
+                        case("grass"): // rock/grass
+                            regularEffectiveFire();
+                            break;
+                        case("ice"): // rock/ice
+                            regularEffectiveFire();
+                            break;
+                        case("bug"): // rock/bug
+                            regularEffectiveFire();
+                            break;
+                        case("steel"): // rock/steel
+                            regularEffectiveFire();
+                            break;
+                        default:
+                            System.out.println("Less Effective");
+                            lessEffectiveFire();
+                            break;
+                    }
+                    break;
+                case("dragon"): // dragon
+                    switch("playerType2")
+                    {
+                        case("fire"): // dragon/fire
+                            System.out.println("Less Effective");
+                            lessEffectiveFire();
+                            break;
+                        case("ice"): // dragon/ice
+                            regularEffectiveFire();
+                            break;
+                        default: // dragon
+                            System.out.println("Less Effective");
+                            lessEffectiveFire();
+                            break;
+                    }
+                    break;
+                case("grass"): // grass
+                    switch("playerType2")
+                    {
+                        case("dragon"): // grass/dragon
+                            regularEffectiveFire();
+                            break;
+                        case(""): //
+                    }
+            }
+        }
+    }
+}
