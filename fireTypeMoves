@@ -179,9 +179,75 @@ public class fireTypeMoves
                         case("dragon"): // grass/dragon
                             regularEffectiveFire();
                             break;
-                        case(""): //
+                        case("ice"): // grass/ice
+                            superDuperEffectiveFire();
+                            break;
+                        case("steel"): // grass/steel
+                            superDuperEffectiveFire();
+                            break;
+                        default: // grass
+                            superEffectiveFire();
+                            break;
                     }
+                    break;
+                case("ice"): // ice
+                    switch("playerType2")
+                    {
+                        case("water"): // ice/water
+                            regularEffectiveFire();
+                            break;
+                        case("bug"): // ice/bug
+                            superDuperEffectiveFire();
+                            break;
+                        default: // ice
+                            superEffectiveFire();
+                            break;
+                    }
+                    break;
+                case("bug"): // bug
+                    switch("playerType2")
+                    {
+                        case("fire"): // bug/fire
+                            regularEffectiveFire();
+                            break;
+                        case("water"): // bug/water
+                            regularEffectiveFire();
+                            break;
+                        case("rock"): // bug/rock
+                            regularEffectiveFire();
+                            break;
+                        case("steel"): // bug/steel
+                            superDuperEffectiveFire();
+                            break;
+                        case("grass"): // bug/grass
+                            superDuperEffectiveFire();
+                            break;
+                        default: // bug
+                            superEffectiveFire();
+                            break;
+                    }
+                    break;
+                case("steel"): // steel
+                    switch(playerType2)
+                    {
+                        case("dragon"): // steel/dragon
+                            regularEffectiveFire();
+                            break;
+                        case("rock"): // steel/rock
+                            regularEffectiveFire();
+                            break;
+                        default: // steel
+                            superEffectiveFire();
+                            break;
+                    }
+                    break;
+                default: 
+                    regularEffectiveFire();
+                    break;
             }
+        } else
+        {
+            System.out.println("Error in fire type moves block. 1st if then");
         }
     }
 }
