@@ -1,0 +1,131 @@
+package poke_d;
+
+import java.util.Scanner;
+import static poke_d.PokeD.playerMoveType;
+import static poke_d.PokeD.playerType1;
+import static poke_d.PokeD.playerType2;
+
+/**
+ * @author Kevin
+ */
+
+public class groundTypeMoves 
+{
+    static int dmgRoll = 0;
+    static int dmgBaseMod = 0;
+    static int ATKStat = 0;
+    static int DEFStat =0;
+    static int totalATK = 0;
+    static int groundATK = 0;
+    static int groundTotalDMG = 0;
+    static int playerOneHP = 0;
+    static int playerTwoHP = 0;
+    //static String playerOneType1 = " ";
+    //static String playerOneType2 = " ";
+    //static String playerTwoMoveType = " ";
+        
+    static void groundMoves ()
+    {
+        if (playerMoveType.equals("ground"))
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.print("Enter the Player's damage roll: ");
+            dmgRoll = keyboard.nextInt();
+            System.out.print("Enter DB Modifier: ");
+            dmgBaseMod = keyboard.nextInt();
+            System.out.print("Enter the Attackers ATK stat: ");
+            ATKStat = keyboard.nextInt();
+            System.out.print("Enter the Defenders DEF stat: ");
+            DEFStat = keyboard.nextInt();
+            totalATK = (dmgRoll+dmgBaseMod+ATKStat);
+            
+            switch(playerType1)
+            {
+                // flying/ ?
+                case("flying"):
+                    switch(playerType2)
+                    {
+                        // fying/steel x0
+                        // flying/ ? x0
+                    }
+                // grass/ ?
+                case("grass"):
+                    switch(playerType2)
+                    {
+                        // grass/flying x0
+                        // grass/poison x1
+                        // grass/steel x1
+                        // grass/ ? x.5
+                    }
+                // bug/ ?
+                case("bug"):
+                    switch(playerType2)
+                    {
+                        // bug/flying x0
+                        // bug/grass x.5
+                        // bug/fire x1
+                        // bug/electric x1
+                        // bug/poison x1
+                        // bug/rock x1
+                        // bug/steel x1
+                        // bug/ ? x.5
+                    }
+                // fire/ ?
+                case("fire"):
+                    switch(playerType2)
+                    {
+                        // fire/flying x0
+                        // fire/bug x1
+                        // fire/rock x3
+                        // fire/steel x3
+                        // fire/ ? x2
+                    }
+                // electric/ ?
+                case("electric"):
+                    switch(playerType2)
+                    {
+                        // electric/flying x1
+                        // electric/poison x3
+                        // electric/steel x3
+                        // electric/ ? x2
+                    }
+                // poison/ ?
+                case("poison"):
+                    switch(playerType2)
+                    {
+                        // poison/flying x0
+                        // poison/bug x1
+                        // poison/fire x3
+                        // poison/ ? x2
+                    }
+                // rock/ ?
+                case("rock"):
+                    switch(playerType2)
+                    {
+                        // rock/flying x0
+                        // rock/grass x1
+                        // rock/bug x1
+                        // rock/fire x3
+                        // rock/poison x3
+                        // rock/steel x3
+                        // rock/ ? x2
+                    }
+                // steel/ ?
+                case("steel"):
+                    switch(playerType2)
+                    {
+                        // steel/flying x0
+                        // steel/rock x3
+                        // steel/ ? x2
+                    }
+                default:
+                groundTotalDMG = (totalATK - DEFStat);
+                System.out.println("Total DMG done: "+groundTotalDMG);
+                break;
+            }
+        } else
+        {
+            System.out.println("Error in Ground Type Moves Block, 1st if-then");
+        }
+    }
+}
