@@ -1,0 +1,74 @@
+package poke_d;
+
+import java.util.Scanner;
+import static poke_d.PokeD.playerMoveType;
+import static poke_d.PokeD.playerType1;
+
+/**
+ * @author Kevin
+ */
+
+public class dragonTypeMoves 
+{
+    static int dmgRoll = 0;
+    static int dmgBaseMod = 0;
+    static int ATKStat = 0;
+    static int DEFStat =0;
+    static int totalATK = 0;
+    static int dragonATK = 0;
+    static int dragonTotalDMG = 0;
+    static int playerOneHP = 0;
+    static int playerTwoHP = 0;
+    //static String playerOneType1 = " ";
+    //static String playerOneType2 = " ";
+    //static String playerTwoMoveType = " ";
+        
+    static void dragonMoves ()
+    {
+        if (playerMoveType.equals("dragon"))
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.print("Enter the Player's damage roll: ");
+            dmgRoll = keyboard.nextInt();
+            System.out.print("Enter DB Modifier: ");
+            dmgBaseMod = keyboard.nextInt();
+            System.out.print("Enter the Attackers ATK stat: ");
+            ATKStat = keyboard.nextInt();
+            System.out.print("Enter the Defenders DEF stat: ");
+            DEFStat = keyboard.nextInt();
+            totalATK = (dmgRoll+dmgBaseMod+ATKStat);
+            
+            //Dragon VS Fairy No Effect
+            if (playerType1.equals("fairy"))
+            {
+                System.out.println("NO Effect");
+                dragonATK = totalATK * 0;
+            
+            //Dragon VS Steel 1/2 dmg
+            } else if (playerType1.equals("steel"))
+            {
+                System.out.println("Less Effective");
+                dragonATK = totalATK / 2;
+                dragonTotalDMG = (dragonATK - DEFStat);
+                System.out.println("total dmg done: "+dragonTotalDMG);
+                
+            //Dragon VS Dragon *2 dmg
+            } else if (playerType1.equals("dragon"))
+            {
+                System.out.println("Super Effective");
+                dragonATK = totalATK * 2;
+                dragonTotalDMG = (dragonATK - DEFStat);
+                System.out.println("Total DMG done: "+dragonTotalDMG);
+                
+            //Dragon VS ?
+            } else
+            {
+                dragonTotalDMG = (totalATK - DEFStat);
+                System.out.println("Total DMG done: "+dragonTotalDMG);
+            }
+        } else
+        {
+            System.out.println("Error in Dragon Type Moves Block, 1st if-then");
+        }
+    }
+}
