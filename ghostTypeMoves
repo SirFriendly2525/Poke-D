@@ -1,0 +1,81 @@
+package poke_d;
+
+import java.util.Scanner;
+import static poke_d.PokeD.playerMoveType;
+import static poke_d.PokeD.playerType1;
+
+/**
+ * @author Kevin
+ */
+
+public class ghostTypeMoves 
+{
+    static int dmgRoll = 0;
+    static int dmgBaseMod = 0;
+    static int ATKStat = 0;
+    static int DEFStat =0;
+    static int totalATK = 0;
+    static int ghostATK = 0;
+    static int ghostTotalDMG = 0;
+    static int playerOneHP = 0;
+    static int playerTwoHP = 0;
+    //static String playerOneType1 = " ";
+    //static String playerOneType2 = " ";
+    //static String playerTwoMoveType = " ";
+        
+    static void ghostMoves ()
+    {
+        if (playerMoveType.equals("ghost"))
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.print("Enter the Player's damage roll: ");
+            dmgRoll = keyboard.nextInt();
+            System.out.print("Enter DB Modifier: ");
+            dmgBaseMod = keyboard.nextInt();
+            System.out.print("Enter the Attackers ATK stat: ");
+            ATKStat = keyboard.nextInt();
+            System.out.print("Enter the Defenders DEF stat: ");
+            DEFStat = keyboard.nextInt();
+            totalATK = (dmgRoll+dmgBaseMod+ATKStat);
+            
+            //Ghost VS Normal No Effect
+            if (playerType1.equals("normal"))
+            {
+                System.out.println("Less Effective");
+                ghostATK = totalATK * 0;
+            
+            //Ghost VS Dark 1/2 dmg
+            } else if (playerType1.equals("dark"))
+            {
+                System.out.println("Less Effective");
+                ghostATK = totalATK / 2;
+                ghostTotalDMG = (ghostATK - DEFStat);
+                System.out.println("total dmg done: "+ghostTotalDMG);
+                
+            //Ghost VS Psychic *2 dmg
+            } else if (playerType1.equals("psychic"))
+            {
+                System.out.println("Super Effective");
+                ghostATK = totalATK * 2;
+                ghostTotalDMG = (ghostATK - DEFStat);
+                System.out.println("total dmg done: "+ghostTotalDMG);
+                
+            //Ghost VS Ghost *2 dmg
+            } else if (playerType1.equals("ghost"))
+            {
+                System.out.println("Super Effective");
+                ghostATK = totalATK * 2;
+                ghostTotalDMG = (ghostATK - DEFStat);
+                System.out.println("total dmg done: "+ghostTotalDMG);
+                
+            } else
+            {
+                ghostTotalDMG = (ghostATK - DEFStat);
+                System.out.println("total dmg done: "+ghostTotalDMG);
+            }
+        } else
+        {
+            System.out.println("Error in Ghost Type Moves Block, 1st if-then");
+        }
+    }
+}
