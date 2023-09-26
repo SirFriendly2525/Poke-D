@@ -1,0 +1,226 @@
+package poke_d;
+
+import java.util.Scanner;
+import static poke_d.PokeD.playerMoveType;
+import static poke_d.PokeD.playerType1;
+import static poke_d.PokeD.playerType2;
+        
+/**
+ * @author Kevin
+ * This is for Fire type moves against all types that it has an effect on
+ * except normal that is handled elsewhere
+ */
+
+public class electricTypeMoves 
+{
+    static int dmgRoll = 0;
+    static int dmgBaseMod = 0;
+    static int ATKStat = 0;
+    static int DEFStat =0;
+    static int totalATK = 0;
+    static int electricATK = 0;
+    static int electricTotalDMG = 0;
+    static int playerOneHP = 0;
+    static int playerTwoHP = 0;
+    //static String playerOneType1 = " ";
+    //static String playerOneType2 = " ";
+    //static String playerTwoMoveType = " ";
+        
+    static void electricMoves ()
+    {
+        if (playerMoveType.equals("electric"))
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.print("Enter the Player's damage roll: ");
+            dmgRoll = keyboard.nextInt();
+            System.out.print("Enter DB Modifier: ");
+            dmgBaseMod = keyboard.nextInt();
+            System.out.print("Enter the Attackers ATK stat: ");
+            ATKStat = keyboard.nextInt();
+            System.out.print("Enter the Defenders DEF stat: ");
+            DEFStat = keyboard.nextInt();
+            totalATK = (dmgRoll+dmgBaseMod+ATKStat);
+            
+            switch (playerType1)
+            {
+                case("ground"):
+                    switch(playerType2)
+                    {
+                        // ground/electric
+                        case("electric"):
+                            System.out.println("NO EFFECT");
+                            electricATK = totalATK * 0;
+                            break;
+                        // ground/dragon
+                        case("dragon"):
+                            System.out.println("NO EFFECT");
+                            electricATK = totalATK * 0;
+                            break;
+                        // ground/flying
+                        case("flying"):
+                            System.out.println("Less Effective");
+                            electricATK = totalATK / 2;
+                            electricTotalDMG = (electricATK - DEFStat);
+                            System.out.println("total dmg done: "+electricTotalDMG);
+                            break;
+                        // ground/ ?
+                        default:
+                            System.out.println("NO EFFECT");
+                            electricATK = totalATK * 0;
+                            break;
+                    }
+                // electric/ ?
+                case("electric"):
+                    switch(playerType2)
+                    {
+                        // electric/dragon
+                        case("dragon"):
+                            System.out.println("Less Effective");
+                            electricATK = totalATK / 2;
+                            electricTotalDMG = (electricATK - DEFStat);
+                            System.out.println("total dmg done: "+electricTotalDMG);
+                            break;
+                        // electric/flying
+                        case("flying"):
+                            electricTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+electricTotalDMG);
+                            break;
+                        // electric/ ?
+                        default:
+                            electricTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+electricTotalDMG);
+                            break;
+                    }
+                // grass/ ?
+                case("grass"):
+                    switch(playerType2)
+                    {
+                        // grass/ground x0
+                        case("ground"):
+                            System.out.println("NO EFFECT");
+                            electricATK = totalATK * 0;
+                            break;
+                        // grass/dragon x.5
+                        case("dragon"):
+                            System.out.println("Less Effective");
+                            electricATK = totalATK / 2;
+                            electricTotalDMG = (electricATK - DEFStat);
+                            System.out.println("total dmg done: "+electricTotalDMG);
+                            break;
+                        // grass/flying x1
+                        case("flying"):
+                            electricTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+electricTotalDMG);
+                            break;
+                        // grass/ ? x.5
+                        default:
+                            System.out.println("Less Effective");
+                            electricATK = totalATK / 2;
+                            electricTotalDMG = (electricATK - DEFStat);
+                            System.out.println("total dmg done: "+electricTotalDMG);
+                            break;
+                    }
+                // dragon/ ?
+                case("dragon"):
+                    switch(playerType2)
+                    {
+                        // dragon/ground x0
+                        case("ground"):
+                            System.out.println("NO EFFECT");
+                            electricATK = totalATK * 0;
+                            break;
+                        // dragon/electric x.5
+                        case("electric"):
+                            System.out.println("Less Effective");
+                            electricATK = totalATK / 2;
+                            electricTotalDMG = (electricATK - DEFStat);
+                            System.out.println("total dmg done: "+electricTotalDMG);
+                            break;
+                        // dragon/flying x1
+                        case("flying"):
+                            electricTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+electricTotalDMG);
+                            break;
+                        // dragon/ ? x.5
+                        default:
+                            System.out.println("Less Effective");
+                            electricATK = totalATK / 2;
+                            electricTotalDMG = (electricATK - DEFStat);
+                            System.out.println("total dmg done: "+electricTotalDMG);
+                            break;
+                    }
+                // water/ ?
+                case("water"):
+                    switch(playerType2)
+                    {
+                        // water/ground 0
+                        case("ground"):
+                            System.out.println("NO EFFECT");
+                            electricATK = totalATK * 0;
+                            break;
+                        // water/electric x1
+                        case("electric"):
+                            electricTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+electricTotalDMG);
+                            break;
+                        // water/grass x1
+                        case("grass"):
+                            electricTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+electricTotalDMG);
+                            break;
+                        // water/dragon x1
+                        case("dragon"):
+                            electricTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+electricTotalDMG);
+                            break;
+                        // water/flying x3
+                        case("flying"):
+                            System.out.println("Super Duper Effective");
+                            electricATK = totalATK * 3;
+                            electricTotalDMG = (electricATK - DEFStat);
+                            System.out.println("total dmg done: "+electricTotalDMG);
+                            break;
+                        // water/ ? x2
+                        default:
+                            System.out.println("Super Effective");
+                            electricATK = totalATK * 2;
+                            electricTotalDMG = (electricATK - DEFStat);
+                            System.out.println("total dmg done: "+electricTotalDMG);
+                            break;
+                    }
+                // flying/ ?
+                case("flying"):
+                    switch(playerType2)
+                    {
+                        // flying/dragon x1
+                        case("dragon"):
+                            electricTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+electricTotalDMG);
+                            break;
+                        // flying/water x3
+                        case("water"):
+                            System.out.println("Super Duper Effective");
+                            electricATK = totalATK * 3;
+                            electricTotalDMG = (electricATK - DEFStat);
+                            System.out.println("total dmg done: "+electricTotalDMG);
+                            break;
+                        // flying/ ? x2
+                        default:
+                            System.out.println("Super Effective");
+                            electricATK = totalATK * 2;
+                            electricTotalDMG = (electricATK - DEFStat);
+                            System.out.println("total dmg done: "+electricTotalDMG);
+                            break;
+                    }
+                // electric/ ?
+                default:
+                    electricTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+electricTotalDMG);
+                            break;
+            }
+        } else
+        {
+            System.out.println("Error in Electric Type Moves Block, 1st if-then");
+        }
+    }
+}
