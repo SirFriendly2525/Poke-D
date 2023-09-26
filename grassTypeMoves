@@ -1,0 +1,518 @@
+package poke_d;
+
+import java.util.Scanner;
+import static poke_d.PokeD.playerMoveType;
+import static poke_d.PokeD.playerType1;
+import static poke_d.PokeD.playerType2;
+
+/**
+ * @author Kevin
+ * This is for Grass type moves against all types that it has an effect on
+ */
+public class grassTypeMoves 
+{
+    static int dmgRoll = 0;
+    static int dmgBaseMod = 0;
+    static int ATKStat = 0;
+    static int DEFStat =0;
+    static int totalATK = 0;
+    static int grassATK = 0;
+    static int grassTotalDMG = 0;
+    static int playerOneHP = 0;
+    static int playerTwoHP = 0;
+        
+    static void grassMoves ()
+    {
+        if (playerMoveType.equals("grass"))
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.print("Enter the Player's damage roll: ");
+            dmgRoll = keyboard.nextInt();
+            System.out.print("Enter DB Modifier: ");
+            dmgBaseMod = keyboard.nextInt();
+            System.out.print("Enter the Attackers ATK stat: ");
+            ATKStat = keyboard.nextInt();
+            System.out.print("Enter the Defenders DEF stat: ");
+            DEFStat = keyboard.nextInt();
+            totalATK = (dmgRoll+dmgBaseMod+ATKStat);
+            
+            switch(playerType1)
+            { // fire/ ?
+                case("fire"):
+                    switch(playerType2)
+                    {
+                        // fire/flying
+                        case("flying"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // fire/bug
+                        case("bug"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // fire/dragon
+                        case("dragon"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // fire/steel
+                        case("steel"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // fire/water
+                        case("water"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // fire/ground
+                        case("ground"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // fire/rock
+                        case("rock"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // fire/
+                        default:
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                    }
+                // grass/ ?
+                case("grass"):
+                    switch(playerType2)
+                    {
+                        // grass/poison
+                        case("poison"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // grass/flying
+                        case("flying"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // grass/dragon
+                        case("dragon"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // grass/steel
+                        case("steel"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // grass/ground
+                        case("ground"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // grass/
+                        default:
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                    }
+                // poison/ ?
+                case("poison"):
+                    switch(playerType2)
+                    {
+                        // poison/fire
+                        case("fire"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // poison/flying
+                        case("flying"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // poison/bug
+                        case("bug"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // poison/dragon
+                        case("dragon"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // poison/water
+                        case("water"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // poison/ground
+                        case("ground"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // poison/
+                        default:
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                    }
+                // flying/ ?
+                case("flying"):
+                    switch(playerType2)
+                    {
+                        // flying/dragon
+                        case("dragon"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // flying/steel
+                        case("steel"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // flying/water
+                        case("water"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // flying/
+                        default:
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                    }
+                // bug/ ?
+                case("bug"):
+                    switch(playerType2)
+                    {
+                        // bug/fire
+                        case("fire"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // bug/grass
+                        case("grass"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // bug/poison
+                        case("poison"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // bug/flying
+                        case("flying"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // bug/steel
+                        case("steel"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // bug/water
+                        case("water"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // bug/ground
+                        case("ground"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // bug/rock
+                        case("rock"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // rock/
+                        default:
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                    }
+                // dragon/ ?
+                case("dragon"):
+                    switch(playerType2)
+                    {
+                        // dragon/fire
+                        case("fire"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // dragon/flying
+                        case("flying"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // dragon/dragon
+                        case("dragon"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // dragon/ground
+                        case("ground"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // dragon/
+                        default:
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                    }
+                // steel/ ?
+                case("steel"):
+                    switch(playerType2)
+                    {
+                        // steel/flying
+                        case("flying"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // steel/dragon
+                        case("dragon"):
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                        // steel/ground
+                        case("ground"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // steel/rock
+                        case("rock"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // steel
+                        default:
+                            System.out.println("Less Effective");
+                            grassATK = totalATK / 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("total dmg done: "+grassTotalDMG);
+                            break;
+                    }
+                // water/ ?
+                case("water"):
+                    switch(playerType2)
+                    {
+                        // water/grass
+                        case("grass"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // water/poison
+                        case("poison"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // water/flying
+                        case("flying"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // water/bug
+                        case("bug"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // water/dragon
+                        case("dragon"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // water/steel
+                        case("steel"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // water/ground
+                        case("ground"):
+                            System.out.println("Super Duper Effective");
+                            grassATK = totalATK * 3;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // water/rock
+                        case("rock"):
+                            System.out.println("Super Duper Effective");
+                            grassATK = totalATK * 3;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // water/
+                        default:
+                            System.out.println("Super Effective");
+                            grassATK = totalATK * 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                    }
+                // ground/ ?
+                case("ground"):
+                    switch(playerType2)
+                    {
+                        // ground/flying
+                        case("flying"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // ground/dragon
+                        case("dragon"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // ground/steel
+                        case("steel"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // ground/rock
+                        case("rock"):
+                            System.out.println("Super Duper Effective");
+                            grassATK = totalATK * 3;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // ground/
+                        default:
+                            System.out.println("Super Effective");
+                            grassATK = totalATK * 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                    }
+                // rock/ ?
+                case("rock"):
+                    switch(playerType2)
+                    {
+                        // rock/fire
+                        case("fire"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // rock/grass
+                        case("grass"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // rock/poison
+                        case("poison"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // rock/flying
+                        case("flying"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // rock/bug
+                        case("bug"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // rock/dragon
+                        case("dragon"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // rock/steel
+                        case("steel"):
+                            grassTotalDMG = (totalATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // rock/water
+                        case("water"):
+                            System.out.println("Super Duper Effective");
+                            grassATK = totalATK * 3;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // rock/ground
+                        case("ground"):
+                            System.out.println("Super Duper Effective");
+                            grassATK = totalATK * 3;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                        // rock/
+                        default:
+                            System.out.println("Super Effective");
+                            grassATK = totalATK * 2;
+                            grassTotalDMG = (grassATK - DEFStat);
+                            System.out.println("Total DMG done: "+grassTotalDMG);
+                            break;
+                    }
+                default:
+                    grassTotalDMG = (totalATK - DEFStat);
+                    System.out.println("total dmg done: "+grassTotalDMG);
+                    break;
+            }
+        } else
+        {
+            System.out.println("Error in Grass Type Moves Block, 1st if-then");
+        }
+    }
+}
