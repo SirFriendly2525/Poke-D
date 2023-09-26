@@ -1,0 +1,102 @@
+package poke_d;
+
+import java.util.Scanner;
+import static poke_d.PokeD.playerMoveType;
+import static poke_d.PokeD.playerType1;
+import static poke_d.PokeD.playerType2;
+
+/**
+ * @author Kevin
+ * This is used if there is no Type conflict
+ * IE... Normal VS Normal
+ * Where Fire VS Grass would be a type conflict and handled elsewhere in the code
+ */
+public class DmgCalculator
+{
+    static int dmgRoll = 0;
+    static int dmgBaseMod = 0;
+    static int ATKStat = 0;
+    static int DEFStat =0;
+    static int totalATK = 0;
+    static int normalATK = 0;
+    static int normalTotalDMG = 0;
+    
+    static void doSomething()
+    {
+        if (playerMoveType.equals("normal"))
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.print("Enter the Player's damage roll: ");
+            dmgRoll = keyboard.nextInt();
+            System.out.print("Enter DB Modifier: ");
+            dmgBaseMod = keyboard.nextInt();
+            System.out.print("Enter the Attackers ATK stat: ");
+            ATKStat = keyboard.nextInt();
+            System.out.print("Enter the Defenders DEF stat: ");
+            DEFStat = keyboard.nextInt();
+            totalATK = (dmgRoll+dmgBaseMod+ATKStat);
+        
+            //Normal VS Ghost 
+            switch (playerType1)
+            {
+                case("ghost"):
+                    System.out.println("NO EFFECT");
+                    normalATK = totalATK * 0;
+                    break;
+                    
+                // Normal VS Rock
+                case("rock"):
+                    switch (playerType2)
+                    {   // Normal VS rock/ghost
+                        case("ghost"):
+                            System.out.println("NO EFFECT");
+                            normalATK = totalATK * 0;
+                            break;
+                        // Normal VS rock/steel
+                        case("steel"):
+                            System.out.println("Less Effective");
+                            normalATK = totalATK / 2;
+                            normalTotalDMG = (normalATK - DEFStat);
+                            System.out.println("total dmg done: "+normalTotalDMG);
+                            break;
+                        // Normal VS rock
+                        default:
+                            System.out.println("Less Effective");
+                            normalATK = totalATK / 2;
+                            normalTotalDMG = (normalATK - DEFStat);
+                            System.out.println("total dmg done: "+normalTotalDMG);
+                            break;
+                    }
+                    
+                // Normal VS steel
+                case("steel"):
+                    switch (playerType2)
+                    {
+                        // Normal VS steel/rock
+                        case("rock"):
+                            System.out.println("Less Effective");
+                            normalATK = totalATK / 2;
+                            normalTotalDMG = (normalATK - DEFStat);
+                            System.out.println("total dmg done: "+normalTotalDMG);
+                            break;
+                        // Normal VS steel
+                        default:
+                            System.out.println("Less Effective");
+                            normalATK = totalATK / 2;
+                            normalTotalDMG = (normalATK - DEFStat);
+                            System.out.println("total dmg done: "+normalTotalDMG);
+                            break;
+                    }
+                    
+                // Normal VS ?
+                default:
+                    normalTotalDMG = (totalATK - DEFStat);
+                    System.out.println("total dmg done: "+normalTotalDMG);
+                    break;
+            }
+        } else
+        {
+            System.out.println("Error in Normal Type Moves Block, 1st if-then");
+        }
+    }
+}
