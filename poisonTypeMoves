@@ -1,0 +1,118 @@
+package poke_d;
+
+import java.util.Scanner;
+import static poke_d.PokeD.playerMoveType;
+import static poke_d.PokeD.playerType1;
+import static poke_d.PokeD.playerType2;
+
+/**
+ * @author Kevin
+ */
+
+public class poisonTypeMoves 
+{
+    static int dmgRoll = 0;
+    static int dmgBaseMod = 0;
+    static int ATKStat = 0;
+    static int DEFStat =0;
+    static int totalATK = 0;
+    static int poisonATK = 0;
+    static int poisonTotalDMG = 0;
+    static int playerOneHP = 0;
+    static int playerTwoHP = 0;
+    //static String playerOneType1 = " ";
+    //static String playerOneType2 = " ";
+    //static String playerTwoMoveType = " ";
+        
+    static void poisonMoves ()
+    {
+        if (playerMoveType.equals("poison"))
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.print("Enter the Player's damage roll: ");
+            dmgRoll = keyboard.nextInt();
+            System.out.print("Enter DB Modifier: ");
+            dmgBaseMod = keyboard.nextInt();
+            System.out.print("Enter the Attackers ATK stat: ");
+            ATKStat = keyboard.nextInt();
+            System.out.print("Enter the Defenders DEF stat: ");
+            DEFStat = keyboard.nextInt();
+            totalATK = (dmgRoll+dmgBaseMod+ATKStat);
+            
+            switch(playerType1)
+            {
+                // steel/ ?
+                case("steel"):
+                    switch(playerType2)
+                    {
+                        // steel/ground x0
+                        // steel/rock x0
+                        // steel/fairy x0
+                        // steel/ ? x0
+                    }
+                // poison/ ?
+                case("poison"):
+                    switch(playerType2)
+                    {
+                        // poison/ground x.5
+                        // poison/ ? x.5
+                    }
+                // ground/ ?
+                case("ground"):
+                    switch(playerType2)
+                    {
+                        // ground/steel x0
+                        // ground/rock x.5
+                        // ground/ghost x.5
+                        // ground/ ? x.5
+                    }
+                // rock/ ?
+                case("rock"):
+                    switch(playerType2)
+                    {
+                        // rock/steel x0
+                        // rock/poison x.5
+                        // rock/ground x.5
+                        // rock/ghost x.5
+                        // rock/grass x1
+                        // rock/fairy x1
+                        // rock/ ? x.5
+                    }
+                // ghost/ ?
+                case("ghost"):
+                    switch(playerType2)
+                    {
+                        // ghost/poison x.5
+                        // ghost/ground x.5
+                        // ghost/grass x1
+                        // ghost/fairy x1
+                        // ghost/ ? x.5
+                    }
+                // grass/ ?
+                case("grass"):
+                    switch(playerType2)
+                    {
+                        // grass/steel x0
+                        // grass/poison x1
+                        // grass/ground x1
+                        // grass/fairy x3
+                        // grass/ ? x2
+                    }
+                // fairy/ ?
+                case("fairy"):
+                    System.out.println("Less Effective");
+                            poisonATK = totalATK / 2;
+                            poisonTotalDMG = (poisonATK - DEFStat);
+                            System.out.println("total dmg done: "+poisonTotalDMG);
+                            break;
+                default:
+                    poisonTotalDMG = (totalATK - DEFStat);
+                    System.out.println("Total DMG done: "+poisonTotalDMG);
+                    break;
+            }
+        } else
+        {
+            System.out.println("Error in Poison Type Moves Block, 1st if-then");
+        }
+    }
+}
