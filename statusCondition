@@ -1,0 +1,19 @@
+package poke_d;
+
+import java.util.Scanner;
+
+/**
+ * @author Kevin
+ */
+
+
+// This is for if the status condition code as is, can or needs to be, redone.
+// This should allow for the code to be simplified. 
+
+public class statusCondition 
+{
+    static void statCondEffect()
+    {
+        
+    }
+}
