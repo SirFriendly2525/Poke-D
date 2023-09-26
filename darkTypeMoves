@@ -1,0 +1,91 @@
+package poke_d;
+
+import java.util.Scanner;
+import static poke_d.PokeD.playerMoveType;
+import static poke_d.PokeD.playerType1;
+
+/**
+ * @author Kevin
+ */
+
+public class darkTypeMoves 
+{
+    static int dmgRoll = 0;
+    static int dmgBaseMod = 0;
+    static int ATKStat = 0;
+    static int DEFStat =0;
+    static int totalATK = 0;
+    static int darkATK = 0;
+    static int darkTotalDMG = 0;
+    static int playerOneHP = 0;
+    static int playerTwoHP = 0;
+    //static String playerType1 = " ";
+    //static String playerType2 = " ";
+    //static String playerMoveType = " ";
+        
+    static void darkMoves ()
+    {
+        if (playerMoveType.equals("dark"))
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.print("Enter the Player's damage roll: ");
+            dmgRoll = keyboard.nextInt();
+            System.out.print("Enter DB Modifier: ");
+            dmgBaseMod = keyboard.nextInt();
+            System.out.print("Enter the Attackers ATK stat: ");
+            ATKStat = keyboard.nextInt();
+            System.out.print("Enter the Defenders DEF stat: ");
+            DEFStat = keyboard.nextInt();
+            totalATK = (dmgRoll+dmgBaseMod+ATKStat);
+            
+            //Dark VS Fighting 1/2 dmg
+            if (playerType1.equals("fighting"))
+            {
+                System.out.println("Less Effective");
+                darkATK = totalATK / 2;
+                darkTotalDMG = (darkATK - DEFStat);
+                System.out.println("total dmg done: "+darkTotalDMG);
+            
+            //Dark VS Dark 1/2 dmg
+            } else if (playerType1.equals("dark"))
+            {
+                System.out.println("Less Effective");
+                darkATK = totalATK / 2;
+                darkTotalDMG = (darkATK - DEFStat);
+                System.out.println("total dmg done: "+darkTotalDMG);
+                
+            //Dark VS Fairy 1/2 dmg
+            } else if (playerType1.equals("fairy"))
+            {
+                System.out.println("Less Effective");
+                darkATK = totalATK / 2;
+                darkTotalDMG = (darkATK - DEFStat);
+                System.out.println("total dmg done: "+darkTotalDMG);
+                
+            //Dark VS Psychic *2 dmg
+            } else if (playerType1.equals("dragon"))
+            {
+                System.out.println("Less Effective");
+                darkATK = totalATK / 2;
+                darkTotalDMG = (darkATK - DEFStat);
+                System.out.println("total dmg done: "+darkTotalDMG);
+                
+            //Dark VS Ghost *2 dmg
+            } else if (playerType1.equals("grass"))
+            {
+                System.out.println("Less Effective");
+                darkATK = totalATK / 2;
+                darkTotalDMG = (darkATK - DEFStat);
+                System.out.println("total dmg done: "+darkTotalDMG);
+                
+            } else
+            {
+                darkTotalDMG = (darkATK - DEFStat);
+                System.out.println("total dmg done: "+darkTotalDMG);
+            }
+        } else
+        {
+            System.out.println("Error in Dark Type Moves Block, 1st if-then");
+        }
+    }
+}
