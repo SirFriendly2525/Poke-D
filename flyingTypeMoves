@@ -1,0 +1,170 @@
+package poke_d;
+
+import java.util.Scanner;
+import static poke_d.PokeD.playerMoveType;
+import static poke_d.PokeD.playerType1;
+import static poke_d.PokeD.playerType2;
+
+/**
+ * @author Kevin
+ */
+
+public class fightingTypeMoves 
+{
+    static int dmgRoll = 0;
+    static int dmgBaseMod = 0;
+    static int ATKStat = 0;
+    static int DEFStat =0;
+    static int totalATK = 0;
+    static int fightingATK = 0;
+    static int fightingTotalDMG = 0;
+    static int playerOneHP = 0;
+    static int playerTwoHP = 0;
+    //static String playerOneType1 = " ";
+    //static String playerOneType2 = " ";
+    //static String playerTwoMoveType = " ";
+        
+    static void fightingMoves ()
+    {
+        if (playerMoveType.equals("fighting"))
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.print("Enter the Player's damage roll: ");
+            dmgRoll = keyboard.nextInt();
+            System.out.print("Enter DB Modifier: ");
+            dmgBaseMod = keyboard.nextInt();
+            System.out.print("Enter the Attackers ATK stat: ");
+            ATKStat = keyboard.nextInt();
+            System.out.print("Enter the Defenders DEF stat: ");
+            DEFStat = keyboard.nextInt();
+            totalATK = (dmgRoll+dmgBaseMod+ATKStat);
+            
+            switch(playerType1)
+            {
+                // ghost/ ?
+                case("ghost"):
+                    switch(playerType2)
+                    {
+                        // ghost/poison x0
+                        // ghost/flying x0 
+                        // ghost/fairy x0
+                        // ghost/dark x0
+                        // ghost/ ? x0
+                    }
+                // poison/ ?
+                case("poison"):
+                    switch(playerType2)
+                    {
+                        // poison/flying x.5
+                        // poison/bug x.5
+                        // poison/dark x1
+                        // poison/ ? x.5
+                    }
+                // flying/ ?
+                case("flying"):
+                    switch(playerType2)
+                    {
+                        // flying/steel x1
+                        // flying/ ? x.5
+                    }
+                // psychic/ ?
+                case("psychic"):
+                    switch(playerType2)
+                    {
+                        // psychic/ghost x0
+                        // psychic/flying x.5
+                        // psychic/fairy x.5
+                        // psychic/normal x1
+                        // psychic/dark x1
+                        // psychic/steel x1
+                        // psychic/? x.5
+                    }
+                // bug/ ?
+                case("bug"):
+                    switch(playerType2)
+                    {
+                        // bug/ghost x0
+                        // bug/poison x.5
+                        // bug/flying x.5
+                        // bug/psychic x.5
+                        // bug/fairy x1
+                        // bug/rock x1
+                        // bug/steel x1
+                        // bug/ ? x.5
+                    }
+                // fairy/ ?
+                case("fairy"):
+                    switch(playerType2)
+                    {
+                        // fairy/flying x.5
+                        // fairy/ ? x.5
+                    }
+                // normal/ ?
+                case("normal"):
+                    switch(playerType2)
+                    {
+                        // normal/flying x1
+                        // normal/psychic x1
+                        // normal/fairy x1
+                        // normal/ ? x2
+                    }
+                // ice/ ?
+                case("ice"):
+                    switch(playerType2)
+                    {
+                        // ice/ghost x0
+                        // ice/flying x1
+                        // ice/psychic x1
+                        // ice/bug x1
+                        // ice/ ? x2
+                    }
+                // rock/ ?
+                case("rock"):
+                    switch(playerType2)
+                    {
+                        // rock/ghost x0
+                        // rock/poison x1
+                        // rock/flying x1
+                        // rock/psychic x1
+                        // rock/ bug x1
+                        // rock/fairy x1
+                        // rock/ice x3
+                        // rock/dark x3
+                        // rock/steel x3
+                        // rock/ ? x2
+                    }
+                // dark/ ?
+                case("dark"):
+                    switch(playerType2)
+                    {
+                        // dark/ghost x0
+                        // dark/poison x1
+                        // dark/flying x1
+                        // dark/psychic x1
+                        // dark/fairy x1
+                        // dark/normal x3
+                        // dark/ice x3
+                        // dark/steel x3
+                        // dark/ ? x2
+                    }
+                // steel/ ?
+                case("steel"):
+                    switch(playerType2)
+                    {
+                        // steel/flying x1
+                        // steel/psychic x1
+                        // steel/fairy x1
+                        // steel/rock x3
+                        // steel/ ? x2
+                    }
+                default:
+                    fightingTotalDMG = (totalATK - DEFStat);
+                    System.out.println("Total DMG done: "+fightingTotalDMG);
+                    break;
+            }
+        } else
+        {
+            System.out.println("Error in Fighting Type Moves Block, 1st if-then");
+        }
+    }
+}
