@@ -1,0 +1,357 @@
+package poke_d;
+
+import java.util.Scanner;
+import static poke_d.PokeD.playerMoveType;
+import static poke_d.PokeD.playerType1;
+import static poke_d.PokeD.playerType2;
+
+/**
+ * @author Kevin
+ * This is for Ice type moves against all types that it has an effect on
+ */
+
+public class iceTypeMoves
+{
+    static int dmgRoll = 0;
+    static int dmgBaseMod = 0;
+    static int ATKStat = 0;
+    static int DEFStat =0;
+    static int totalATK = 0;
+    static int iceATK = 0;
+    static int iceTotalDMG = 0;
+    static int playerOneHP = 0;
+    static int playerTwoHP = 0;
+    //static String playerOneType1 = " ";
+    //static String playerOneType2 = " ";
+    //static String playerTwoMoveType = " ";
+        
+    static void iceMoves ()
+    {
+        if (playerMoveType.equals("ice"))
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.print("Enter the Player's damage roll: ");
+            dmgRoll = keyboard.nextInt();
+            System.out.print("Enter DB Modifier: ");
+            dmgBaseMod = keyboard.nextInt();
+            System.out.print("Enter the Attackers ATK stat: ");
+            ATKStat = keyboard.nextInt();
+            System.out.print("Enter the Defenders DEF stat: ");
+            DEFStat = keyboard.nextInt();
+            totalATK = (dmgRoll+dmgBaseMod+ATKStat);
+            
+            switch(playerType1)
+            {
+                // fire/ ?
+                case("fire"):
+                    switch(playerType2)
+                    {
+                        // fire/water x.5
+                        case("water"):
+                            System.out.println("less effective");
+                            iceATK = totalATK / 2;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("total dmg done: "+iceTotalDMG);
+                            break;
+                        // fire/steel x.5
+                        case("steel"):
+                            System.out.println("less effective");
+                            iceATK = totalATK / 2;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("total dmg done: "+iceTotalDMG);
+                            break;
+                        // fire/ground x1
+                        case("ground"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // fire/flying x1
+                        case("flying"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // fire/dragon x1
+                        case("dragon"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // fire/ x.5
+                        default:
+                            System.out.println("less effective");
+                            iceATK = totalATK / 2;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("total dmg done: "+iceTotalDMG);
+                            break;
+                    }
+                // water/ ?
+                case("water"):
+                    switch(playerType2)
+                    {
+                        // water/ice x.5
+                        case("ice"):
+                            System.out.println("less effective");
+                            iceATK = totalATK / 2;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("total dmg done: "+iceTotalDMG);
+                            break;
+                        // water/steel x.5
+                        case("steel"):
+                            System.out.println("less effective");
+                            iceATK = totalATK / 2;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("total dmg done: "+iceTotalDMG);
+                            break;
+                        // water/grass x1
+                        case("grass"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // water/ground x1
+                        case("ground"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // water/flying x1
+                        case("flying"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // water/dragon x1
+                        case("dragon"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // water/ ? x.5
+                        default:
+                            System.out.println("less effective");
+                            iceATK = totalATK / 2;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                    }
+                // ice/ ?
+                case("ice"):
+                    switch(playerType2)
+                    {
+                        // ice/water x.5
+                        case("water"):
+                            System.out.println("less effective");
+                            iceATK = totalATK / 2;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // ice/ground x1
+                        case("ground"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // ice/flying x1
+                        case("flying"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // ice/ x.5
+                        default:
+                            System.out.println("less effective");
+                            iceATK = totalATK / 2;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                    }
+                // steel/ ?
+                case("steel"):
+                    switch(playerType2)
+                    {
+                        // steel/ground x1
+                        case("ground"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // steel/flying x1
+                        case("flying"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // steel/dragon x1
+                        case("dragon"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // steel/ ?
+                        default:
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                    }
+                // grass/ ?
+                case("grass"):
+                    switch(playerType2)
+                    {
+                        // grass/ice x1
+                        case("ice"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // grass/steel x1
+                        case("steel"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // grass/ground x3
+                        case("ground"):
+                            System.out.println("Super Duper Effective");  
+                            iceATK = totalATK * 3;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // grass/flying x3
+                        case("flying"):
+                            System.out.println("Super Duper Effective");
+                            iceATK = totalATK * 3;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // grass/dragon x3
+                        case("dragon"):
+                            System.out.println("Super Duper Effective");
+                            iceATK = totalATK * 3;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // grass/ x2
+                        default:
+                            System.out.println("Super Effective");
+                            iceATK = totalATK * 2;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                    }
+                // ground/ ?
+                case("ground"):
+                    switch(playerType2)
+                    {
+                        // ground/steel x3
+                        case("steel"):
+                            System.out.println("Super Duper Effective");
+                            iceATK = totalATK * 3;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // ground/flying x3
+                        case("flying"):
+                            System.out.println("Super Duper Effective");
+                            iceATK = totalATK * 3;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // ground/dragon x3
+                        case("dragon"):
+                            System.out.println("Super Duper Effective");
+                            iceATK = totalATK * 3;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // ground/ ? x2
+                        default:
+                            System.out.println("Super Effective");
+                            iceATK = totalATK * 2;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                    }
+                // flying/ ?
+                case("flying"):
+                    switch(playerType2)
+                    {
+                        // flying/water x1
+                        case("water"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // flying/steel x1
+                        case("steel"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // flying/dragon x3
+                        case("dragon"):
+                            System.out.println("Super Duper Effective");
+                            iceATK = totalATK * 3;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // flying/ ? x2
+                        default:
+                            System.out.println("Super Effective");
+                            iceATK = totalATK * 2;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                    }
+                // dragon/ ?
+                case("dragon"):
+                    switch(playerType2)
+                    {
+                        // dragon/fire x1
+                        case("fire"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // dragon/ice x1
+                        case("ice"):
+                            iceATK = totalATK;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // dragon/ground x3
+                        case("ground"):
+                            System.out.println("Super Duper Effective");
+                            iceATK = totalATK * 3;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // dragon/flying x3
+                        case("flying"):
+                            System.out.println("Super Duper Effective");
+                            iceATK = totalATK * 3;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                        // dragon/ ? x2
+                        default:
+                            System.out.println("Super Effective");
+                            iceATK = totalATK * 2;
+                            iceTotalDMG = (iceATK - DEFStat);
+                            System.out.println("dmg done: "+iceTotalDMG);
+                            break;
+                    }
+                // ice/ ?
+                default:
+                    iceTotalDMG = (totalATK - DEFStat);
+                    System.out.println("Total DMG done: "+iceTotalDMG);
+                    break;
+            }
+        } else
+        {
+            System.out.println("Error in Ice Type Moves Block, 1st if-then");
+        }
+    }
+}
