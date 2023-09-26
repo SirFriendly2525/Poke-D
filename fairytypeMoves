@@ -1,0 +1,99 @@
+package poke_d;
+
+import java.util.Scanner;
+import static poke_d.PokeD.playerMoveType;
+import static poke_d.PokeD.playerType1;
+
+/**
+ * @author Kevin
+ */
+
+public class fairyTypeMoves 
+{
+    static int dmgRoll = 0;
+    static int dmgBaseMod = 0;
+    static int ATKStat = 0;
+    static int DEFStat =0;
+    static int totalATK = 0;
+    static int fairyATK = 0;
+    static int fairyTotalDMG = 0;
+    static int playerOneHP = 0;
+    static int playerTwoHP = 0;
+    //static String playerOneType1 = " ";
+    //static String playerOneType2 = " ";
+    //static String playerTwoMoveType = " ";
+        
+    static void fairyMoves ()
+    {
+        if (playerMoveType.equals("fairy"))
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.print("Enter the Player's damage roll: ");
+            dmgRoll = keyboard.nextInt();
+            System.out.print("Enter DB Modifier: ");
+            dmgBaseMod = keyboard.nextInt();
+            System.out.print("Enter the Attackers ATK stat: ");
+            ATKStat = keyboard.nextInt();
+            System.out.print("Enter the Defenders DEF stat: ");
+            DEFStat = keyboard.nextInt();
+            totalATK = (dmgRoll+dmgBaseMod+ATKStat);
+            
+            //Fairy VS Poison 1/2 dmg
+            if (playerType1.equals("poison"))
+            {
+                System.out.println("Less Effective");
+                fairyATK = totalATK / 2;
+                fairyTotalDMG = (fairyATK - DEFStat);
+                System.out.println("total dmg done: "+fairyTotalDMG);
+            
+            //Fairy VS Fire 1/2 dmg
+            } else if (playerType1.equals("fire"))
+            {
+                System.out.println("Less Effective");
+                fairyATK = totalATK / 2;
+                fairyTotalDMG = (fairyATK - DEFStat);
+                System.out.println("total dmg done: "+fairyTotalDMG);
+                
+            //Fairy VS Steel 1/2 dmg
+            } else if (playerType1.equals("steel"))
+            {
+                System.out.println("Less Effective");
+                fairyATK = totalATK / 2;
+                fairyTotalDMG = (fairyATK - DEFStat);
+                System.out.println("total dmg done: "+fairyTotalDMG);
+                
+            //Fairy VS Fighting *2 dmg
+            } else if (playerType1.equals("fighting"))
+            {
+                System.out.println("Super Effective");
+                fairyATK = totalATK * 2;
+                fairyTotalDMG = (fairyATK - DEFStat);
+                System.out.println("total dmg done: "+fairyTotalDMG);
+                
+            //Fairy VS Dragon *2 dmg
+            } else if (playerType1.equals("dragon"))
+            {
+                System.out.println("Super Effective");
+                fairyATK = totalATK * 2;
+                fairyTotalDMG = (fairyATK - DEFStat);
+                System.out.println("total dmg done: "+fairyTotalDMG);
+                
+            //Fairy VS Dark *2 dmg
+            } else if (playerType1.equals("dark"))
+            {
+                System.out.println("Super Effective");
+                fairyATK = totalATK * 2;
+                fairyTotalDMG = (fairyATK - DEFStat);
+                System.out.println("total dmg done: "+fairyTotalDMG);
+                
+            } else
+            {
+                fairyTotalDMG = (fairyATK - DEFStat);
+                System.out.println("total dmg done: "+fairyTotalDMG);
+            }
+        } else
+        {
+            System.out.println("Error in Fairy Type Moves Block, 1st if-then");
+        }
+    }
+}
